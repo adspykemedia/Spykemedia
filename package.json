@@ -1,0 +1,22 @@
+{
+  "name": "tailwind",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tailwind.config.js",
+  "scripts": {
+      "start:server": "live-server --port=3000 --open=./index.html",
+      "dev:css": "npx tailwindcss -i ./src/tailwind.css -o ./assets/css/style.css --watch",
+      "start": "concurrently \"npm:start:server\" \"npm run dev:css\"",
+      "minify": "npx tailwindcss -i ./src/tailwind.css -o ./assets/css/style.min.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+      "concurrently": "^9.1.2",
+      "live-server": "^1.2.0",
+      "prettier": "^3.2.5",
+      "prettier-plugin-tailwindcss": "^0.6.11",
+      "tailwindcss": "^4.0.9"
+  }
+}

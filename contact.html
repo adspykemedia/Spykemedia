@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        iframe {
+            border: none;
+            height: 1265px;
+            width: 100%;
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Contact Form Section -->
+    <div id="contact-form-container"></div>
+
+    <script>
+        (function () {
+            try {
+                // Create iframe element
+                var iframe = document.createElement("iframe");
+                iframe.src = "https://forms.zohopublic.in/spykemediaofficialgm1/form/SpykemediaWebsiteForm1march25/formperma/9y_VF0mUo_tc2SEQO9Z-iIHgx-Jia-AtBxQ1wfE2r8I?zf_rszfm=1";
+                iframe.setAttribute("aria-label", "Contact us for a personal experience");
+
+                // Append iframe to the container
+                var container = document.getElementById("contact-form-container");
+                container.appendChild(iframe);
+
+                // Handle iframe resizing
+                window.addEventListener("message", function (event) {
+                    var eventData = event.data;
+                    if (eventData && typeof eventData === "string") {
+                        var iframeData = eventData.split("|");
+
+                        if (iframeData.length === 2 || iframeData.length === 3) {
+                            var formId = iframeData[0];
+                            var newHeight = (parseInt(iframeData[1], 10) + 15) + "px";
+                            var iframeElement = container.getElementsByTagName("iframe")[0];
+
+                            if (iframeElement.src.includes("formperma") && iframeElement.src.includes(formId)) {
+                                if (iframeData.length === 3) {
+                                    iframeElement.scrollIntoView();
+                                    setTimeout(() => {
+                                        iframeElement.style.height = newHeight;
+                                    }, 500);
+                                } else {
+                                    iframeElement.style.height = newHeight;
+                                }
+                            }
+                        }
+                    }
+                }, false);
+            } catch (error) {
+                console.error("Error embedding form:", error);
+            }
+        })();
+    </script>
+
+</body>
+</html>
