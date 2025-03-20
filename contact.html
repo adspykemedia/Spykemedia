@@ -40,11 +40,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
         iframe {
             border: none;
             height: 1265px;
             width: 100%;
             transition: all 0.5s ease;
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #FBD718;
+            color: #073D30;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .back-button:hover {
+            background-color: #e6c516;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .loading-spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #073D30;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -54,9 +103,19 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-
-    <!-- Contact Form Section -->
-    <div id="contact-form-container"></div>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="javascript:history.back()" class="back-button">← Back</a>
+        
+        <!-- Loading Indicator -->
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading form...</p>
+        </div>
+        
+        <!-- Contact Form Container -->
+        <div id="contact-form-container" style="display: none;"></div>
+    </div>
 
     <script>
         (function () {
@@ -65,6 +124,12 @@
                 var iframe = document.createElement("iframe");
                 iframe.src = "https://forms.zohopublic.in/spykemediaofficialgm1/form/SpykemediaWebsiteForm1march25/formperma/9y_VF0mUo_tc2SEQO9Z-iIHgx-Jia-AtBxQ1wfE2r8I?zf_rszfm=1";
                 iframe.setAttribute("aria-label", "Contact us for a personal experience");
+                
+                // Handle iframe loading
+                iframe.onload = function() {
+                    document.getElementById("loading").style.display = "none";
+                    document.getElementById("contact-form-container").style.display = "block";
+                };
 
                 // Append iframe to the container
                 var container = document.getElementById("contact-form-container");
@@ -94,8 +159,19 @@
                         }
                     }
                 }, false);
+                
+                // Set a timeout to hide the loading indicator even if iframe loading fails
+                setTimeout(function() {
+                    document.getElementById("loading").style.display = "none";
+                    document.getElementById("contact-form-container").style.display = "block";
+                }, 8000); // 8 seconds timeout
+                
             } catch (error) {
                 console.error("Error embedding form:", error);
+                // Hide loading and show error message
+                document.getElementById("loading").style.display = "none";
+                document.getElementById("contact-form-container").innerHTML = "<p>Error loading form. Please refresh the page or try again later.</p>";
+                document.getElementById("contact-form-container").style.display = "block";
             }
         })();
     </script>
