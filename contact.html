@@ -39,20 +39,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
+
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/Icons/spyke media logo.png" type="image/x-icon" />
+
+    <!-- Site font -->
+    <link rel="stylesheet" href="assets/fonts/webfonts/inter/stylesheet.css" />
+    <link rel="stylesheet" href="assets/fonts/webfonts/libre-baskerville/stylesheet.css" />
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="assets/css/vendors/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="assets/css/vendors/jos.css" />
+    <link rel="stylesheet" href="assets/css/vendors/menu.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css" />
+    <!-- Development css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- Production css -->
+
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1500px;
-            margin: 0 auto;
-            padding: 0 0px;
-        }
-        
+       
+       .section-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensures header stays above other content */
+    background-color: #073D30; /* Keep background same */
+}
+
+.contact-form-container {
+    margin-top: 60px; /* Adjust height to create a gap */
+}
+
+    
         iframe {
             border: none;
             height: 1265px;
@@ -60,36 +84,33 @@
             transition: all 0.5s ease;
         }
         
-        .back-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #FBD718;
-            color: #073D30;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-            margin: 10px 5px;
-        }
         
-        .back-button:hover {
-            background-color: #e6c516;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 40px 0;
-        }
-        
-        .loading-spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #073D30;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 2s linear infinite;
-            margin: 20px auto;
-        }
+        #loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 40px 0;
+    background: rgba(255, 255, 255, 0.9);
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #073D30;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 3s linear infinite;
+}
+
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
@@ -103,10 +124,106 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <div class="container">
-        <!-- Back Button -->
-        <a href="javascript:history.back()" class="back-button">&larr; Back</a>
-        
+    <header class="section-header  site-header fixed top-0 z-30 w-full bg-[#073D30] py-1">
+        <!-- Section Container -->
+        <div class="container">
+            <!-- Header Area -->
+            <div class="flex items-center justify-between">
+                <!-- Header Left Block -->
+                <div class="flex items-center gap-x">
+                    <!-- Header Logo -->
+                    <a href="index.html" class="w-auto h-auto">
+                        <img src="assets/Icons/spyke media logo.png" alt="logo-white" width="60" height="5" />
+                    </a>
+                    <h4 class="text-3xl font-bold text-white">
+                        Spyke Media
+                    </h4>
+                    <!-- Header Logo -->
+                </div>
+                
+                <!-- Header Left Block -->
+    
+                <!-- Header Navigation -->
+                <div class="menu-block-wrapper">
+                    <div class="menu-overlay"></div>
+                    <nav class="menu-block" id="append-menu-header">
+                        <div class="mobile-menu-head">
+                            <div class="go-back">
+                                <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down" width="12" height="7" />
+                            </div>
+                            <div class="current-menu-title"></div>
+                            <div class="mobile-menu-close">×</div>
+                        </div>
+                        <ul class="site-menu-main">
+                            <li class="border border-transparent rounded-none nav-link-item drop-trigger text-colorDark lg:text-white">
+                                <a href="index.html" class="nav-link-item">Home</a>
+                            </li>
+                            <li class="nav-item nav-item-has-children">
+                                <a href="#" class="border border-transparent rounded-none nav-link-item drop-trigger text-colorDark lg:text-white">Services
+                                    <img src="assets/img/icons/icon-caret-down.svg" alt="icon-caret-down" width="7" height="4" class="-rotate-90 invert-0 lg:rotate-0 lg:invert" />
+                                </a>
+                                <ul class="sub-menu" id="submenu-0">
+                                    <li class="sub-menu--item">
+                                        <a href="index2.html">Performance Marketing</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index3.html">Brand Engagement</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index4.html">AD Films</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index5.html">Movie Promotions</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index6.html">Digital Marketing</a>
+                                    </li>
+                                    <!-- <li class="sub-menu--item">
+                                        <a href="index7.html">Ebook 1 - Basics</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index8.html">Ebook 1 - Advanced</a>
+                                    </li>
+                                    <li class="sub-menu--item">
+                                        <a href="index9.html">Ebook 3 - Case Studies</a>
+                                    </li> -->
+                                </ul>
+                            </li>
+                            <li class="border border-transparent rounded-none nav-link-item drop-trigger text-colorDark lg:text-white">
+                                <a href="contact.html" class="nav-link-item">
+                                    Contact Us
+                                </a>
+                                 
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Header Navigation -->
+    
+                <!-- Header Right Block -->
+                <div class="flex items-center gap-x-6">
+                    <a href="contact.html" 
+                    class="group hidden rounded-[50px] bg-[#FBD718] px-8 py-3 text-base font-bold text-[#073D30] lg:inline-flex lg:px-6 lg:py-4">
+                     <div class="relative flex items-center justify-center overflow-hidden">
+                         <span class="transition-all duration-300 translate-y-0 group-hover:-translate-y-full">Contact Us</span>
+                         <span class="absolute transition-all duration-300 translate-y-full group-hover:translate-y-0">Contact Us</span>
+                     </div>
+                 </a>
+                 
+
+                    <!-- Responsive Offcanvas Menu Button -->
+                    <div class="block lg:hidden">
+                        <button id="openBtn" class="hamburger-menu mobile-menu-trigger">
+                            <span class="bg-white before:bg-white after:bg-white"></span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Header Right Block -->
+            </div>
+            <!-- Header Area -->
+        </div>
+        <!-- Section Container -->
+    </header>
         <!-- Loading Indicator -->
         <div id="loading" class="loading">
             <div class="loading-spinner"></div>
@@ -114,7 +231,7 @@
         </div>
         
         <!-- Contact Form Container -->
-        <div id="contact-form-container" style="display: none;"></div>
+        <div id="contact-form-container" class="contact-form-container" style="display: none;"></div>
     </div>
 
     <script>
